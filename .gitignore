@@ -1,0 +1,26 @@
+# Dependency directories
+node_modules/
+
+# idea file
+.idea
+
+# .bat, .sh file
+*.bat
+*.sh
+
+.tern-port
+dump.rdb
+npm-debug.log
+
+
+# Sonar generated files
+.sonar/*
+
+# built folders
+dist
+report
+build
+public
+
+# vscode folders
+.vscode
