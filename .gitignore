@@ -20,7 +20,6 @@ npm-debug.log
 dist
 report
 build
-public
 
 # vscode folders
 .vscode

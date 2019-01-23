@@ -31,8 +31,6 @@ export const get = (endpoint, params = {}, headers = {}) => {
 };
 
 export const post = (endpoint, body = {}, params = {}, headers = {}) => {
-    console.log(endpoint, body, params, headers);
-
     return request(endpoint, "POST", headers, params, body);
 };
 
