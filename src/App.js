@@ -19,7 +19,7 @@ class App extends Component {
             <Provider store={appStore}>
                 <BrowserRouter>
                     <Layout>
-                        {renderRoutes(indexRoutes)}
+                        {renderRoutes(indexRoutes, "")}
                     </Layout>
                 </BrowserRouter>
             </Provider>

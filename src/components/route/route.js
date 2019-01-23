@@ -12,7 +12,6 @@ class RouteContent extends React.Component {
   componentDidMount() {
     const { route } = this.props;
 
-    console.log(route.component);
     route.preProcess && route.preProcess();
     this.setState({ loaded: true });
   }
@@ -21,24 +20,24 @@ class RouteContent extends React.Component {
     const { route, match, history, location } = this.props;
     const { loaded } = this.state;
 
-    return loaded ? <route.component {...route.component} match={match} history={history} location={location} /> : null;
+    return loaded ? <route.component {...route.props} match={match} history={history} location={location} /> : null;
   }
 }
 
-export const renderRoutes = (routes) => {
+export const renderRoutes = (routes, url) => {
   return routes
     ? <Switch>
       {routes.map((prop, key) => {
         if (prop.redirect) {
-          return <Redirect from={prop.path} to={prop.pathTo} key={key} />;
+          return <Redirect from={url + prop.path} to={url + prop.pathTo} key={key} />;
         }
         else {
           return (
-            <Route 
-            path={prop.path} 
-            key={key} 
-            render={({ match, history, location }) => 
-            <RouteContent route={prop} match={match} history={history} location={location} />} />
+            <Route
+              path={url + prop.path}
+              key={key}
+              render={({ match, history, location }) =>
+                <RouteContent route={prop} match={match} history={history} location={location} />} />
           );
         }
       })}

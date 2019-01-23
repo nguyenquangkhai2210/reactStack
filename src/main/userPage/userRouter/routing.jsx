@@ -2,66 +2,66 @@ import Starter from '../component/starter.jsx';
 
 const ThemeRoutes = [
   {
-    path: '/user/dashboard',
+    path: '/dashboard',
     name: 'Dashboard',
     icon: 'ti-loop',
     component: Starter
   },
   {
-    path: '/user/alert',
+    path: '/alert',
     name: 'Alerts',
     icon: 'mdi mdi-comment-processing-outline',
     component: Starter
   },
   {
-    path: '/user/badge',
+    path: '/badge',
     name: 'Badges',
     icon: 'mdi mdi-arrange-send-backward',
     component: Starter
   },
   {
-    path: '/user/button',
+    path: '/button',
     name: 'Buttons',
     icon: 'mdi mdi-toggle-switch',
     component: Starter
   },
   {
-    path: '/user/card',
+    path: '/card',
     name: 'Cards',
     icon: 'mdi mdi-credit-card-multiple',
     component: Starter
   },
   {
-    path: '/user/grid',
+    path: '/grid',
     name: 'Grid',
     icon: 'mdi mdi-apps',
     component: Starter
   },
   {
-    path: '/user/user/pagination',
+    path: '/pagination',
     name: 'Pagination',
     icon: 'mdi mdi-priority-high',
     component: Starter
   },
   {
-    path: '/user/popover',
+    path: '/popover',
     name: 'Popover',
     icon: 'mdi mdi-pencil-circle',
     component: Starter
   },
   {
-    path: '/user/ui-components/tooltip',
+    path: '/ui-components/tooltip',
     name: 'Toltips',
     icon: 'mdi mdi-image-filter-vintage',
     component: Starter
   },
   {
-    path: '/user/viewProfile',
+    path: '/viewProfile',
     name: 'View profile',
     icon: 'mdi mdi-credit-card-multiple',
     component: Starter
   },
-  { path: '/user', pathTo: '/user/dashboard', name: 'Dashboard', redirect: true }
+  { path: '/', pathTo: '/dashboard', name: 'Dashboard', redirect: true }
 ];
 
 export default ThemeRoutes;

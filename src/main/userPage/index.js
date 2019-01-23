@@ -84,7 +84,7 @@ class Fulllayout extends React.Component {
 				{/*--------------------------------------------------------------------------------*/}
 				<div className="page-wrapper d-block">
 					<div className="page-content container-fluid">
-						{renderRoutes(ThemeRoutes)}
+						{renderRoutes(ThemeRoutes, this.props.match.path)}
 					</div>
 					<Footer />
 				</div>

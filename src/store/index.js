@@ -29,7 +29,6 @@ class Store {
   };
 
   injectReducer = (name, asyncReducer) => {
-    console.log(name, asyncReducer);
     this.store.asyncReducers[name] = asyncReducer;
     this.store.replaceReducer(this.createReducer(this.store.asyncReducers));
   };
