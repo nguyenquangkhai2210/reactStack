@@ -26,13 +26,9 @@ class LoginForm extends Component {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.onLogin(values.studentId, values.password, token => {
+        this.onLogin(values.username, values.password, token => {
           if (token) {
             LocalStorageUtils.setItem(LOCAL_STORAGE_KEY.JWT, token);
-            LocalStorageUtils.setItem(
-              LOCAL_STORAGE_KEY.STUDENT_ID,
-              values.studentId
-            );
             if (LocalStorageUtils.isRole() === "isAdmin") {
               this.props.history.push("/admin");
             } else if (LocalStorageUtils.isRole() === "isUser") {
@@ -44,12 +40,12 @@ class LoginForm extends Component {
     });
   };
 
-  onLogin(studentId, password, cb) {
+  onLogin(username, password, cb) {
     post(
       AUTH__LOGIN,
       {},
       {
-        studentId,
+        username,
         password
       },
       { "Content-Type": "application/x-www-form-urlencoded" }
@@ -58,7 +54,7 @@ class LoginForm extends Component {
         cb(res.headers.authorization.replace("Bearer  ", ""));
       })
       .catch(() => {
-        message.error("Invalid Student ID or Password");
+        message.error("Invalid Username or Password");
       });
   }
 
@@ -92,11 +88,11 @@ class LoginForm extends Component {
               style={{ maxWidth: 360 }}
             >
               <Form.Item>
-                {getFieldDecorator("studentId", {
+                {getFieldDecorator("username", {
                   rules: [
                     {
                       required: true,
-                      message: "Please input Student ID"
+                      message: "Please input username"
                     }
                   ]
                 })(
@@ -104,7 +100,7 @@ class LoginForm extends Component {
                     prefix={
                       <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
                     }
-                    placeholder="Student ID"
+                    placeholder="Username"
                   />
                 )}
               </Form.Item>
